@@ -2,7 +2,7 @@ body {
   background-color: gainsboro;
 }
 
-h1 {
+h1, p {
   text-align: center;
   padding: 1em;
 }
