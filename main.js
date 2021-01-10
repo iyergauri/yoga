@@ -7,15 +7,23 @@ $(document).ready(function () {
     plank: ["low_plank"],
     low_plank: ["upward_dog"],
     upward_dog: ["downward_dog"],
-    breathe: ["breathe"]
+    downward_dog: ["threeLegDog"],
+    threeLegDog: ["kneeToNose", "kneeToTricep", "lowLunge"],
+    kneeToNose: ["threeLegDog", "lowLunge"],
+    kneeToTricep: ["threeLegDog"],
+    lowLunge: ["openTwist", "crescentLunge"],
+    breathe: ["breathe", "tuckAndCurl"], 
+    tuckAndCurl: ["forwardFold", "crow"],
   };
 
-  let current = "plank";
+  let current = "downward_dog";
   let routine = [];
 
-  while (routine.push(current) < 5) {
+  while (routine.push(current) < 8) {
     if (exercises[current]) {
-      current = exercises[current][0];
+      possibleExercises = exercises[current];
+      nextExerciseIndex = Math.trunc(Math.random() * possibleExercises.length);
+      current = possibleExercises[nextExerciseIndex];
     } else {
       current = "breathe"
     }
